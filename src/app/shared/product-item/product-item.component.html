@@ -1,0 +1,15 @@
+<mat-card class="product-item">
+    <img mat-card-image [src]="product.image" [alt]="product.name" class="product-image">
+    <mat-card-content class="product-content">
+        <mat-card-title class="product-name">{{ product.name }}</mat-card-title>
+        <mat-card-subtitle class="product-description">{{ product.description }}</mat-card-subtitle>
+        <p class="product-price">{{ product.price | currency:'VND':'symbol':'1.0-0' }}</p>
+        <p *ngIf="product.stock === 0" class="out-of-stock">Hết hàng</p>
+    </mat-card-content>
+    <mat-card-actions class="product-actions">
+        <button mat-raised-button color="primary" class="add-to-cart-btn" [disabled]="product.stock === 0"
+            (click)="onAddToCart()">
+            Thêm vào Giỏ
+        </button>
+    </mat-card-actions>
+</mat-card>

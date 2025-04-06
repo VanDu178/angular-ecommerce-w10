@@ -1,0 +1,32 @@
+<div class="login-container">
+    <mat-card class="login-card">
+        <mat-card-header>
+            <mat-card-title>Đăng Nhập Vào Tài Khoản Của Bạn</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit()">
+                <!-- Email -->
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" id="email" [(ngModel)]="email" name="email" required>
+                    <mat-error *ngIf="!email">Vui lòng nhập email</mat-error>
+                </mat-form-field>
+
+                <!-- Password -->
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Mật Khẩu</mat-label>
+                    <input matInput type="password" id="password" [(ngModel)]="password" name="password" required>
+                    <mat-error *ngIf="!password">Vui lòng nhập mật khẩu</mat-error>
+                </mat-form-field>
+
+                <!-- Nút Đăng Nhập -->
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" type="submit" [disabled]="!email || !password">
+                        Đăng Nhập
+                    </button>
+                </mat-card-actions>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

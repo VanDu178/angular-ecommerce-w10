@@ -1,0 +1,46 @@
+<div class="home">
+    <mat-card class="hero-section">
+        <mat-card-header>
+            <mat-card-title>Chào Mừng Bạn đến với Cửa Hàng Rau Củ Quả!</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>Khám phá những sản phẩm tươi ngon, chất lượng tốt nhất cho sức khỏe của bạn.</p>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- Ô tìm kiếm -->
+    <div class="search-box">
+        <mat-form-field appearance="fill">
+            <mat-label>Tìm kiếm sản phẩm</mat-label>
+            <input matInput [(ngModel)]="searchQuery" (ngModelChange)="onSearch()" placeholder="Nhập tên sản phẩm">
+        </mat-form-field>
+    </div>
+
+    <!-- Skeleton Loading -->
+    <div class="product-list" *ngIf="isLoading">
+        <mat-grid-list [cols]="breakpoint" rowHeight="420px" gutterSize="20px">
+            <mat-grid-tile *ngFor="let _ of skeletonItems">
+                <div class="skeleton-item">
+                    <div class="skeleton-image"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-text"></div>
+                        <div class="skeleton-text short"></div>
+                        <div class="skeleton-text price"></div>
+                        <div class="skeleton-button"></div>
+                    </div>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+
+    <!-- Virtual Scrolling -->
+    <div class="product-list" *ngIf="!isLoading">
+        <cdk-virtual-scroll-viewport itemSize="200" class="virtual-scroll">
+            <div class="grid-container" [style.grid-template-columns]="'repeat(' + breakpoint + ', 1fr)'">
+                <div class="grid-item" *cdkVirtualFor="let product of filteredProducts">
+                    <app-product-item [product]="product" (addToCart)="onAddToCart(product)"></app-product-item>
+                </div>
+            </div>
+        </cdk-virtual-scroll-viewport>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<!-- cart-item.component.html -->
+<mat-card class="cart-item">
+    <mat-card-content class="cart-item-content">
+        <img mat-card-image [src]="item.image" [alt]="item.name" class="cart-item-image">
+        <div class="cart-item-details">
+            <mat-card-title>{{ item.name }}</mat-card-title>
+            <mat-card-subtitle>{{ item.description }}</mat-card-subtitle>
+            <p class="price">{{ item.price | currency }}</p>
+            <p class="quantity">Số lượng: {{ item.quantity }}</p>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,83 @@
+/* cart-item.component.css */
+.cart-item {
+  margin: 24px;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  transition: transform 0.2s ease-in-out;
+  min-height: 200px; /* Chiều cao tối thiểu lớn hơn */
+}
+
+.cart-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.cart-item-content {
+  display: flex;
+  align-items: center;
+  gap: 32px; /* Tăng khoảng cách giữa hình và nội dung */
+  padding: 12px;
+  min-height: 160px; /* Tăng chiều cao nội dung */
+}
+
+.cart-item-image {
+  width: 160px; /* Tăng kích thước ảnh */
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  transition: transform 0.3s ease;
+}
+
+.cart-item-image:hover {
+  transform: scale(1.05);
+}
+
+.cart-item-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Tăng khoảng cách giữa các dòng */
+}
+
+.cart-item-details p {
+  margin: 0;
+  color: #555;
+  font-size: 16px; /* Tăng cỡ chữ */
+}
+
+.cart-item-details .price {
+  color: #d32f2f;
+  font-weight: 600;
+  font-size: 20px; /* Tăng cỡ chữ giá */
+}
+
+.cart-item-details .quantity {
+  color: #1976d2;
+  font-weight: 500;
+  font-size: 18px; /* Tăng cỡ chữ số lượng */
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .cart-item {
+    margin: 16px;
+    padding: 16px;
+    min-height: 300px; /* Tăng chiều cao trên mobile */
+  }
+
+  .cart-item-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    min-height: auto;
+  }
+
+  .cart-item-image {
+    width: 100%;
+    max-width: 240px; /* Tăng kích thước tối đa ảnh trên mobile */
+    height: 180px;
+  }
+}

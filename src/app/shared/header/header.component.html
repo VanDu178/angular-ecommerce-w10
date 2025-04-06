@@ -1,0 +1,17 @@
+<header class="header">
+    <div class="logo">
+        <a routerLink="/">eCommerce</a>
+    </div>
+    <nav class="nav">
+        <a routerLink="/">Home</a>
+        <a routerLink="/cart">Cart</a>
+        <a *ngIf="!isLoggedIn" routerLink="/login"><button>login</button></a>
+        <a *ngIf="isLoggedIn" (click)="logout()">
+            <button>logout</button>
+        </a>
+    </nav>
+    <div class="cart-icon">
+        <i class="fas fa-shopping-cart"></i> <!-- Icon giỏ hàng -->
+        <span class="cart-count">{{ cartItemCount }}</span> <!-- Số lượng sản phẩm trong giỏ -->
+    </div>
+</header>

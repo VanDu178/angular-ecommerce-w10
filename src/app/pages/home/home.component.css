@@ -1,0 +1,179 @@
+.home {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #f9fafb;
+}
+
+.hero-section {
+  margin-bottom: 32px;
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-section mat-card-header {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-section mat-card-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #2e7d32;
+  margin: 0;
+}
+
+.hero-section mat-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-section p {
+  font-size: 18px;
+  color: #555;
+  margin: 16px 0 0;
+  max-width: 600px;
+}
+
+/* Tạo kiểu cho danh sách sản phẩm */
+.product-list {
+  padding: 0;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Virtual Scroll */
+.virtual-scroll {
+  height: 840px; /* Chiều cao cho vùng cuộn */
+  width: 100%;
+  overflow-y: scroll; /* Cuộn dọc cho vùng này */
+  -ms-overflow-style: none; /* Ẩn thanh cuộn trên IE/Edge */
+  scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
+}
+
+.virtual-scroll::-webkit-scrollbar {
+  display: none; /* Ẩn thanh cuộn trên Webkit (Chrome, Safari) */
+}
+
+/* Grid layout cho các sản phẩm */
+.grid-container {
+  display: grid;
+  gap: 20px; /* Khoảng cách giữa các item */
+  padding: 20px;
+}
+
+.grid-item {
+  height: 420px; /* Chiều cao cố định cho mỗi item */
+}
+
+/* Skeleton Loading */
+.skeleton-item {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 200px;
+  background: #e0e0e0;
+  border-radius: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-content {
+  flex: 1;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skeleton-text {
+  width: 80%;
+  height: 20px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-text.short {
+  width: 60%;
+}
+
+.skeleton-text.price {
+  width: 40%;
+  height: 18px;
+}
+
+.skeleton-button {
+  width: 100%;
+  height: 40px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+.search-box {
+  margin: 24px 0;
+}
+
+.search-box mat-form-field {
+  width: 100%;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .hero-section mat-card-title {
+    font-size: 28px;
+  }
+
+  .hero-section p {
+    font-size: 16px;
+  }
+
+  .virtual-scroll {
+    height: 1260px; /* 3 hàng trên tablet */
+  }
+}
+
+@media (max-width: 600px) {
+  .home {
+    padding: 16px;
+  }
+
+  .hero-section {
+    padding: 16px;
+  }
+
+  .hero-section mat-card-title {
+    font-size: 24px;
+  }
+
+  .hero-section p {
+    font-size: 14px;
+  }
+
+  .virtual-scroll {
+    height: 1680px; /* 4 hàng trên mobile */
+  }
+}

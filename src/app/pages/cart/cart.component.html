@@ -1,0 +1,31 @@
+<div class="cart">
+    <!-- Tiêu đề trong mat-card -->
+    <mat-card class="cart-header">
+        <mat-card-title>Giỏ Hàng</mat-card-title>
+    </mat-card>
+
+    <!-- Nội dung giỏ hàng -->
+    <mat-card class="cart-content">
+        <div *ngIf="cartItems.length > 0; else emptyCart">
+            <!-- Danh sách sản phẩm trong giỏ -->
+            <mat-list class="cart-items-list">
+                <mat-list-item *ngFor="let item of cartItems">
+                    <app-cart-item [item]="item"></app-cart-item>
+                </mat-list-item>
+            </mat-list>
+
+            <!-- Tổng tiền -->
+            <mat-card-actions class="total-section">
+                <h3>Tổng tiền: {{ totalPrice | currency:'VND':'symbol':'1.0-0' }}</h3>
+                <button mat-raised-button color="primary">Thanh Toán</button>
+            </mat-card-actions>
+        </div>
+
+        <!-- Trường hợp giỏ hàng trống -->
+        <ng-template #emptyCart>
+            <mat-card-content class="empty-cart">
+                <p>Giỏ hàng của bạn đang trống.</p>
+            </mat-card-content>
+        </ng-template>
+    </mat-card>
+</div>
